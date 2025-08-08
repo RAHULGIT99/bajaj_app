@@ -276,3 +276,8 @@ async def hackrx_run(request: QueryRequest, authorization: Optional[str] = Heade
         if isinstance(e, HTTPException):
             raise e
         raise HTTPException(status_code=500, detail=f"An internal server error occurred: {e}")
+    
+if __name__ == "__main__":
+    import uvicorn
+    port = 8000
+    uvicorn.run("server:app", host="0.0.0.0", port=port)
